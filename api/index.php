@@ -1,3 +1,3 @@
 <?php
-echo "Welcome to API :: React Native";
+echo "Welcome to API :: Pemrograman Perangkat Bergerak";
 ?>

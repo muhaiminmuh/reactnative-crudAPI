@@ -32,26 +32,32 @@ if (!isset($_GET['token2an'])) {	//JIKA TIDAK ADA VARIABEL GET token2an
 
 try {
 
-	//variable perintah sql SELECT
-	$sql 	= "select * from berita order by id desc";	
+	//AMBIL NILAI DARI POSTDATA
+	$data = json_decode(file_get_contents('php://input'), true);
+    $id = $data['id'];
+	$judul = $data['judul'];
+	$konten = $data['konten'];
+
+	//variable perintah sql INSERT
+	$sql 	= "update berita set judul='$judul',konten='$konten' where id='$id' ";	
 
 	//eksekusi query
 	$query 	= $koneksi->query($sql);  
 
-	//mengambil semua data dalam format object
-	$data 	= $query->fetchAll(PDO::FETCH_OBJ);
-
-    foreach ($data as $item) {
-        $item->intro = substr($item->konten,0,80)."...";
-    }
-
-	//buat array untuk format data
-	$dataArray = [
-		'status' => true,
-		'pesan'  => "Berhasil Tampil",
-		'data'	 => $data,
-	];
-
+	if ($query) {
+		//buat array untuk format data
+		$dataArray = [
+			'status' => true,
+			'pesan'  => "Berhasil Ubah",
+		];
+		
+	} else {
+		//buat array untuk format data
+		$dataArray = [
+			'status' => true,
+			'pesan'  => "Gagal Ubah",
+		];
+	}
 	//cetak data dalam format JSON
 	header('Content-Type: application/json');
     echo json_encode($dataArray);
