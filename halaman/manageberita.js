@@ -55,7 +55,7 @@ class ManageBerita extends Component {
         const {tambahJudul} = this.state;
         const {tambahKonten} = this.state;
 
-        fetch("http://api.sopingi.com/berita_tambah.php?token2an=42262euhfbu5y6347ygfue567eybvds87y355cf",{
+        fetch("BASEURL/berita_tambah.php?token2an=42262euhfbu5y6347ygfue567eybvds87y355cf",{
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -81,7 +81,7 @@ class ManageBerita extends Component {
         const {editJudul} = this.state;
         const {editKonten} = this.state;
 
-        fetch("http://api.sopingi.com/berita_ubah.php?token2an=42262euhfbu5y6347ygfue567eybvds87y355cf",{
+        fetch("BASEURL/berita_ubah.php?token2an=42262euhfbu5y6347ygfue567eybvds87y355cf",{
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -104,7 +104,7 @@ class ManageBerita extends Component {
 
 
     _hapusBerita = () => {
-        fetch("http://api.sopingi.com/berita_hapus.php?token2an=42262euhfbu5y6347ygfue567eybvds87y355cf",{
+        fetch("BASEURL/berita_hapus.php?token2an=42262euhfbu5y6347ygfue567eybvds87y355cf",{
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -125,7 +125,7 @@ class ManageBerita extends Component {
     }
     componentDidMount() {
         NetInfo.isConnected.addEventListener('change', this.statusKoneksi);
-        fetch("http://api.sopingi.com/berita.php?token2an=42262euhfbu5y6347ygfue567eybvds87y355cf")
+        fetch("BASEURL/berita.php?token2an=42262euhfbu5y6347ygfue567eybvds87y355cf")
             .then(response => response.json())
             .then(hasil => {
 

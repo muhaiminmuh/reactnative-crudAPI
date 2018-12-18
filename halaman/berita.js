@@ -35,7 +35,7 @@ class Berita extends Component {
     
     componentDidMount() {
         NetInfo.isConnected.addEventListener('change', this.statusKoneksi);
-        fetch("http://api.sopingi.com/berita.php?token2an=42262euhfbu5y6347ygfue567eybvds87y355cf")
+        fetch("BASEURL/berita.php?token2an=42262euhfbu5y6347ygfue567eybvds87y355cf")
             .then(response => response.json())
             .then(hasil => {
 
