@@ -1,5 +1,5 @@
 <?php
-require  'pengaturan.php';
+require  'config.php';
 
 if (!isset($_GET['token2an'])) {	//JIKA TIDAK ADA VARIABEL GET token2an
 	
